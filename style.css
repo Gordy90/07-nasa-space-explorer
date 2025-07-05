@@ -8,8 +8,9 @@
 /* Base page styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f1f1f1;
+  background-color: #0B3D91; /* NASA blue background */
   padding: 20px;
+  color: white;
 }
 
 /* Centered container */
@@ -26,12 +27,14 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle white overlay */
+  border-radius: 8px;
 }
 
 h1 {
   font-family: Verdana, sans-serif;
   font-weight: bold;
-  color: #212121;
+  color: #FFFFFF; /* NASA white text */
 }
 
 /* Logo */
@@ -55,23 +58,27 @@ input[type="date"],
 button {
   font-family: Arial, sans-serif;
   font-weight: normal;
-  color: #666;
+  color: #0B3D91; /* NASA blue text */
   padding: 10px 15px;
-  border: 1px solid #ddd;
+  border: 2px solid #FFFFFF; /* White border */
   border-radius: 4px;
   font-size: 16px;
   line-height: 1.4;
   width: 100%;
+  background-color: #FFFFFF; /* White background */
 }
 
 /* Button specific */
 button {
-  background-color: #d3d3d3;
-  color: black;
+  background-color: #FC3D21; /* NASA red */
+  color: white;
   cursor: pointer;
+  border: 2px solid #FC3D21;
+  font-weight: bold;
 }
 button:hover {
-  background-color: #bfbfbf;
+  background-color: #E63946; /* Darker red on hover */
+  border-color: #E63946;
 }
 
 /* Stack horizontally on wider screens */
@@ -85,6 +92,32 @@ button:hover {
   button {
     width: auto;
   }
+}
+
+/* Did You Know fact section */
+.fact-section {
+  background-color: rgba(252, 61, 33, 0.1); /* Light NASA red background */
+  border: 2px solid #FC3D21; /* NASA red border */
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0 20px 20px 20px;
+  text-align: center;
+}
+
+.fact-section h2 {
+  color: #FC3D21; /* NASA red heading */
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-family: Verdana, sans-serif;
+}
+
+.fact-section p {
+  color: #FFFFFF; /* White text */
+  font-size: 16px;
+  line-height: 1.5;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Gallery flex container */
@@ -102,12 +135,13 @@ button:hover {
   min-width: 280px;
   max-width: 500px;
   background: white;
-  padding: 10px;
+  padding: 5px; /* Reduced padding for image-only display */
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Stronger shadow for contrast */
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  border: 2px solid #FFFFFF; /* White border */
 }
 
 /* Three columns on wider screens */
@@ -122,12 +156,13 @@ button:hover {
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
+  cursor: pointer; /* Make it clear images are clickable */
 }
 
-.gallery-item p {
-  margin-top: 10px;
-  padding: 5px;
-  font-size: 14px;
+/* Add hover effect to images */
+.gallery-item img:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
 /* Placeholder content */
@@ -135,10 +170,95 @@ button:hover {
   flex: 1 1 100%;
   text-align: center;
   padding: 40px;
-  color: #666;
+  color: #FFFFFF; /* White text */
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle white overlay */
+  border-radius: 8px;
 }
 
 .placeholder-icon {
   font-size: 48px;
   margin-bottom: 20px;
+}
+
+/* Modal styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgba(11, 61, 145, 0.9); /* NASA blue background with opacity */
+}
+
+/* Modal content box */
+.modal-content {
+  background-color: white;
+  margin: 2% auto; /* Center the modal */
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%; /* Width of the modal */
+  max-width: 800px; /* Maximum width */
+  max-height: 90%; /* Maximum height */
+  overflow-y: auto; /* Allow scrolling if content is too tall */
+  position: relative;
+  border: 3px solid #0B3D91; /* NASA blue border */
+}
+
+/* Close button */
+.close {
+  color: #FC3D21; /* NASA red */
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.close:hover,
+.close:focus {
+  color: #E63946; /* Darker red on hover */
+}
+
+/* Modal image */
+#modalImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  border: 2px solid #0B3D91; /* NASA blue border */
+}
+
+/* Modal text content */
+.modal-info h2 {
+  margin-bottom: 10px;
+  color: #0B3D91; /* NASA blue text */
+}
+
+.modal-info p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #333; /* Dark gray text for readability */
+}
+
+/* Video thumbnail styles */
+.video-thumbnail:hover {
+  background-color: #0A2D7A !important; /* Darker NASA blue on hover */
+  transition: background-color 0.3s ease;
+}
+
+/* Video container in modal */
+.video-container iframe {
+  max-width: 100%;
+  border: 2px solid #0B3D91; /* NASA blue border */
+}
+
+/* Video link button styles */
+.video-container a:hover {
+  background-color: #E63946 !important; /* Darker red on hover */
+  transition: background-color 0.3s ease;
 }
